@@ -8,7 +8,7 @@ public class User {
     private int age;
     private BankAccount account;
 
-    User(String username, int age) throws Exception {
+    public User(String username, int age) throws Exception {
         this.username = username;
         this.age = age;
         this.account = new BankAccount(0, this);
@@ -41,7 +41,7 @@ public class User {
     public static class BankAccount implements Account {
         private float moneyAmount;
         private final User user;
-        public static List<User> users = new ArrayList<User>();
+        private static List<User> users = new ArrayList<>();
 
         BankAccount(float moneyAmount, User user) throws Exception {
             if (user.getAge() > 18) {
@@ -53,10 +53,16 @@ public class User {
             }
         }
 
-        public static void getAllUsers() {
-            users.forEach(user -> {
-                System.out.println(user.getUsername());
-            });
+        public static List<String> getAllUsers() {
+            List<String> userNames = new ArrayList<>();
+
+            users.forEach(user -> userNames.add(user.getUsername()));
+
+            return userNames;
+        }
+
+        public float getMoneyAmount() {
+            return this.moneyAmount;
         }
 
         @Override
