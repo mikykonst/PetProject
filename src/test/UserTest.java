@@ -1,6 +1,7 @@
 package test;
 
 import com.company.User;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Rule;
