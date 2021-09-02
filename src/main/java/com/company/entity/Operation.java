@@ -1,19 +1,34 @@
 package com.company.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
-import java.security.Timestamp;
+import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
+@Entity
+@Component("operation")
+@Builder
+@Table(name = "operation")
+@NoArgsConstructor
 @AllArgsConstructor
 public class Operation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "account_id")
     private long accountId;
-    private Timestamp time;
+
+    @Column(name = "time")
+    private String time;
+
+    @Column(name = "amount")
     private float amount;
 
-    private enum type {}
-
-    ;
+    private enum type {};
 }

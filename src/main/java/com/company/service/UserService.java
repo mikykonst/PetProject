@@ -1,12 +1,11 @@
 package com.company.service;
 
 import com.company.entity.User;
-import org.springframework.data.repository.CrudRepository;
 
-public interface UserService extends CrudRepository<User, Long> {
+public interface UserService {
     User create(String username, int age, long accountId);
 
-    User updateUser(Long id);
+    User updateUser(User id);
 
     boolean deleteUser(Long id);
 }

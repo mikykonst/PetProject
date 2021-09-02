@@ -17,5 +17,5 @@ public interface AccountService {
 
     boolean checkPin(Integer pin, long accountNumber);
 
-    boolean processWithdrawal(float balance, String cardNumber);
+    boolean processWithdrawal(long number, float balance, String cardNumber);
 }

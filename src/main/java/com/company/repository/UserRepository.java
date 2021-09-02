@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Transactional
     @Modifying
     @Query("delete from User u where u.id=?1")
     public void deleteEntity(Long id);
